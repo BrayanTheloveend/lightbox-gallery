@@ -1,0 +1,120 @@
+/*Gallery with lightbox and hover effect*/
+
+.container{
+  width: 80%;
+  margin: auto;
+  padding: 30px 0px;
+}
+
+
+
+
+.container > .single {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  position: relative;
+  overflow: hidden;
+}
+
+.box-content{
+  display: block;
+  width: 100%;
+  height: 100%;
+  
+
+}
+
+
+.single::before{
+  background:  rgba(0,0,0,0.8);
+  content: '';
+  display: block;
+  height: 100%;
+  align-items: center;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  transition: all 0.4s ease 0s;
+  width: 100%;
+}
+
+/* hover container */
+
+.box-item {
+  color: #fff;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500; 
+  height: 100%;
+  left: 0;
+  flex-direction: column;
+  z-index: 2;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .single .box-item {
+  opacity: 0;
+}
+
+.container > .single:hover .box-item{
+  opacity: 1;
+}
+
+
+.container .single  img{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.container > .single:hover::before{
+  opacity: 1;
+}
+.container > .single:hover img{
+  transform:  scale(1.1);
+}
+
+
+.container{
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-auto-rows: 150px;
+  grid-auto-flow: dense;
+
+}
+
+.horizontal{
+  grid-column: span 2;
+}
+.vertical{
+  grid-row: span 2;
+}
+.big{
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+
+
+/* icon ionics */ 
+
+ion-icon{
+  font-size: smaller;
+}
+
+ion-icon:hover {
+  color: #efefef;
+}
